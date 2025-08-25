@@ -535,7 +535,13 @@ function bindPressHold(elm, onDown, onUp){
   window.addEventListener("touchcancel", u);
 }
 bindPressHold(el.btnCharge, startCharge, stopCharge);
-el.btnExpel.addEventListener("click", expel);
+const onExpel = (e)=>{
+  e.preventDefault();
+  if (state.isCharging) stopCharge();
+  expel();
+};
+el.btnExpel.addEventListener("touchstart", onExpel, {passive:false});
+el.btnExpel.addEventListener("click", onExpel);
 el.btnPrestige.addEventListener("click", prestige);
 
 /* ---------- Save / Load ---------- */
