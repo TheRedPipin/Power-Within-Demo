@@ -482,7 +482,6 @@ function stopCharge(){
   state.chargeTime = 1;
 }
 function expel(){
-  if (state.isCharging) return;
   if (state.energy <= 0) return;
 
   const cap = effectiveCap();
