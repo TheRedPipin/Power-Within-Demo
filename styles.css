@@ -268,7 +268,7 @@ small,
   left: -220px;
   width: 200px;
   height: 100vh;
-  background: #222;
+  background: var(--surface);
   box-shadow: 2px 0 10px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
@@ -283,7 +283,7 @@ small,
 }
 
 .menuBtn {
-  background-color: #333;
+  background-color: #422b3f;
   color: #fff;
   border: none;
   padding: 34px 0;
