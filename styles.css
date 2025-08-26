@@ -128,6 +128,7 @@ header {
 #buttonsContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-top: 10px;
     gap: 12px;
 }
 
@@ -184,10 +185,33 @@ small,
     color: var(--muted);
 }
 
+#particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.dot {
+  position: absolute;
+  width: 2.5px;
+  height: 2.5px;
+  background: rgba(255, 255, 255, 0.25);
+  filter: blur(0.2px);
+  animation: drift linear infinite;
+}
+
+@keyframes drift {
+  from {
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    transform: translateY(-140px) translateX(40px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
     * {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
     }
@@ -205,4 +229,79 @@ small,
     #player {
         width: 32%;
     }
+}
+
+#hamburgerMenu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+}
+
+#hamburgerIcon {
+  background-color: #222;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+  transition: background-color 0.2s !important;
+}
+
+#hamburgerIcon .bar {
+  width: 28px;
+  height: 4px;
+  background: #fff;
+  border-radius: 2px;
+  display: block;
+}
+
+#sideMenu {
+  position: fixed;
+  top: 0;
+  left: -220px;
+  width: 200px;
+  height: 100vh;
+  background: #222;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 20px 20px 0;
+  transition: left 0.3s cubic-bezier(.77,0,.18,1) !important;
+  z-index: 1000;
+}
+
+#sideMenu.open {
+  left: 0;
+}
+
+.menuBtn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 34px 0;
+  margin: 0 0 10px 0;
+  border-radius: 0px 6px 6px 0px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s !important;
+}
+
+.menuBtn:hover {
+  background-color: #444;
+}
+
+@media (max-width: 600px) {
+  #sideMenu {
+    width: 70vw;
+    min-width: 160px;
+    padding-top: 60px;
+  }
 }

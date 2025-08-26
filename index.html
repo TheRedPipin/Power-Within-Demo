@@ -10,6 +10,18 @@
 </head>
 
 <body>
+  <div id="hamburgerMenu">
+    <button id="hamburgerIcon" aria-label="Open menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav id="sideMenu">
+      <button class="menuBtn">Main</button>
+      <button class="menuBtn">Settings</button>
+      <button class="menuBtn">Achievements</button>
+    </nav>
+  </div>
   <div id="wrapper">
     <header>Power Withincremental</header>
     <div id="statsContainer">
@@ -17,17 +29,25 @@
       <div id="masteryPoints">MP: 0</div>
       <div id="limit">Limit: 100</div>
     </div>
-    <div id="playerContainer">
-      <div id="player"></div>
-      <div id="chargeContainer">
-        <div id="chargeForground"></div>
+    <div id="main">
+      <div id="playerContainer">
+        <div id="particles"></div>
+        <div id="player"></div>
+        <div id="chargeContainer">
+          <div id="chargeForground"></div>
+        </div>
+      </div>
+      <div id="buttonsContainer">
+        <button id="chargeBtn">CHARGE</button>
+        <button id="expelBtn">EXPEL</button>
       </div>
     </div>
-    <div id="buttonsContainer">
-      <button id="chargeBtn">CHARGE</button>
-      <button id="expelBtn">EXPEL</button>
+    <div id="settings" hidden>
+      <div>!!!This is where settings will be!!!</div>
+    </div>
+    <div id="achievements" hidden>
+      <div>!!!This is where achievments will be!!!</div>
     </div>
   </div>
 </body>
-
 </html>
