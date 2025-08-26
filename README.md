@@ -1,4 +1,4 @@
-# Power Within Incremental — README (Web Build)
+# Power Within Incremental — README (The Hope)
 
 A fast, mobile-first incremental game built for the browser using **HTML/CSS/JS**. Manage **Energy**, convert it into **Power Level (PL)**, then **Prestige** for **Mastery Points (MP)** to unlock a single, branching skill tree. Visuals are minimal, high-contrast, and reactive.
 
