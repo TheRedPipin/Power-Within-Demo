@@ -1,0 +1,208 @@
+:root {
+    color-scheme: dark;
+    --bg: #0b0f14;
+    --surface: #11161d;
+    --surface-2: #161c25;
+    --border: #212a35;
+    --text: #e7ebf3;
+    --muted: #9aa3b2;
+    --accent: #7ee787;
+    --accent-2: #4ea6ff;
+    --danger: #ff6b6b;
+    --radius: 4px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, .35);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    color: var(--text);
+    background: radial-gradient(1200px 800px at 50% -10%, #12202d 0%, var(--bg) 45%);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+#wrapper {
+    min-height: 100dvh;
+    max-width: 520px;
+    margin-inline: auto;
+    padding: 16px;
+    padding-top: calc(env(safe-area-inset-top) + 16px);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 16px);
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 16px;
+}
+
+header {
+    font-weight: 700;
+    letter-spacing: .3px;
+    font-size: clamp(1.1rem, 2.5vw + 1rem, 1.6rem);
+    text-align: center;
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+#statsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+#statsContainer>div {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+}
+
+#limit {
+    color: var(--text);
+    transition: color 1s ease !important;
+}
+
+#playerContainer {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) + 4px);
+    box-shadow: var(--shadow);
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+#player {
+    width: 48%;
+    aspect-ratio: 1/1;
+    border-radius: 14px;
+    background-color: #d6e6c9;
+    box-shadow:
+        0 10px 30px rgba(126, 231, 135, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, .2) !important;
+    transform: scale(1) !important;
+    transition: transform 400ms ease, background-color 400ms ease, box-shadow 320ms ease !important;
+}
+
+#player:hover {
+    transform: scale(1.03) !important;
+}
+
+#chargeContainer {
+    width: 80%;
+    height: 25px;
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) + 4px);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+#chargeForground {
+    height: 25px;
+    background-color: rgba(0, 0, 255, 0.403);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+#buttonsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+#buttonsContainer button {
+    appearance: none;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface-2);
+    color: var(--text);
+    padding: 16px 14px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    box-shadow: var(--shadow);
+    min-height: 56px;
+    touch-action: manipulation;
+    transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+#buttonsContainer button:first-child {
+    background-color: #1f3a28bd;
+    border-color: #1f3a28;
+}
+
+#buttonsContainer button:first-child:where(:hover, :focus-visible) {
+    background-color: #1f3a28;
+}
+
+#buttonsContainer button:last-child {
+    background-color: #4a1717bd;
+    border-color: #532727;
+}
+
+#buttonsContainer button:last-child:where(:hover, :focus-visible) {
+    background-color: #4a1717;
+}
+
+#buttonsContainer button:active {
+    transform: translateY(1px) scale(0.99);
+}
+
+#buttonsContainer button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent-2);
+    outline-offset: 2px;
+}
+
+small,
+.muted {
+    color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 420px) {
+    #wrapper {
+        grid-template-rows: auto auto auto auto;
+    }
+
+    #playerContainer {
+        aspect-ratio: 16 / 9;
+    }
+
+    #player {
+        width: 32%;
+    }
+}
